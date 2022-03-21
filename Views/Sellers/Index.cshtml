@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GuitarBazar.Models.Seller>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Helper.GlyphiconAction("Create", "glyphicon-plus", "Ajouter un veudeur")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Helper.GlyphiconAction("Edit/" + item.Id.ToString(), "glyphicon-edit", "Modify", item.Name + "...")
+                @Helper.GlyphiconAction("Details/" + item.Id.ToString(), "glyphicon-eye-open", "Details", item.Name + "...")
+                @Helper.GlyphiconConfirmAction("Delete/" + item.Id, " glyphicon-remove-circle", "Vouler vous Effacer ", item.Name + "...")
+
+            </td>
+        </tr>
+    }
+
+</table>

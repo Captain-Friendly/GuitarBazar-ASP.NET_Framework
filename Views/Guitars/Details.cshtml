@@ -1,0 +1,106 @@
+﻿@model GuitarBazar.Models.Guitar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Guitar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Maker)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maker)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Condition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Condition.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuitarType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuitarType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+
+        <dd> @Helper.GuitarImage("preview", "thumbnail", Model.ImageURL, Model.Sold)</dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seller)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seller.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Helper.GlyphiconAction("index/", "glyphicon-circle-arrow-left", "Retour à la Boutique")
+    @Helper.GlyphiconAction("Edit/" + Model.Id.ToString(), "glyphicon-edit", "Modify", Model.Id + "...")
+    @Helper.GlyphiconConfirmAction("Delete/" + Model.Id, " glyphicon-remove-circle", "Vouler vous Effacer ", Model.Model+ "...")
+</p>
+
